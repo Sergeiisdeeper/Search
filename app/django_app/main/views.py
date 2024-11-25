@@ -1,7 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("<h1>Welcome to Django Server</h1>")
-
-
-# Create your views here.
+def home(request):
+    return render(request, 'index.html')  # This will render the `index.html` from the templates directory.
