@@ -13,5 +13,5 @@ def make_app():
 if __name__ == "__main__":
     app = make_app()
     app.listen(8002)  # Укажите порт 8002
-    tornado.ioloop.IOLoop.current().start()
+    tornado.ioloop.IOLoop.current(0.0).start(8002)
 
