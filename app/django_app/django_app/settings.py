@@ -53,19 +53,25 @@ ROOT_URLCONF = "django_app.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR / "templates",              # Global templates
+            BASE_DIR / "django_app/templates",   # Templates for django_app
+            BASE_DIR / "django_app/games/templates", # Templates for games
+            BASE_DIR / "django_app/live_chat/templates", # Templates for live_chat
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = "django_app.wsgi.application"
 
@@ -115,7 +121,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
+
+# Add paths for static files
+STATICFILES_DIRS = [
+    BASE_DIR / "static",                 # For global static files
+    BASE_DIR / "django_app/static",      # Specific to django_app
+    BASE_DIR / "django_app/games/static", # Specific to games
+    BASE_DIR / "django_app/live_chat/static", # Specific to live_chat
+
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
