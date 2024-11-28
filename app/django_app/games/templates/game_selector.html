@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Selector</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Select a Game</h1>
+    <ul>
+        <li><a href="{% url 'games:ping_pong' %}">Ping Pong</a></li>
+        <li><a href="{% url 'games:snake' %}">Snake</a></li>
+        <li><a href="{% url 'games:third_game' %}">Third Game</a></li>
+    </ul>
+</body>
+</html>
